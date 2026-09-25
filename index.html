@@ -7,12 +7,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-color: #fcfbfa;
+            --bg-color: #fbfaf8;
             --text-main: #2c2a29;
-            --accent-gold: #c5a059;
-            --accent-gold-dark: #a3813e;
+            --accent-olive: #6b7a42;
+            --accent-olive-dark: #525e31;
             --card-bg: #ffffff;
-            --border-color: #eae5df;
+            --border-color: #e6e2db;
         }
 
         * {
@@ -29,19 +29,20 @@
             line-height: 1.6;
             display: flex;
             justify-content: center;
-            padding: 20px;
         }
 
         .container {
             width: 100%;
-            max-width: 600px;
+            max-width: 480px;
             background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
-            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
             overflow: hidden;
-            padding: 40px 30px;
             text-align: center;
+        }
+
+        section {
+            padding: 50px 25px;
+            border-bottom: 1px solid var(--border-color);
         }
 
         h1, h2 {
@@ -49,155 +50,170 @@
             font-weight: 400;
         }
 
-        .header-subtitle {
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            font-size: 0.75rem;
-            color: var(--accent-gold);
-            margin-bottom: 15px;
+        /* 1-блок: Басты бет */
+        .hero-section {
+            padding: 60px 20px 40px 20px;
         }
 
         .names {
-            font-size: 2.3rem;
+            font-size: 2.8rem;
             font-family: 'Playfair Display', serif;
             font-style: italic;
-            color: var(--text-main);
+            color: var(--accent-olive);
+            margin: 20px 0;
+            line-height: 1.2;
+        }
+
+        .main-photo {
+            width: 100%;
+            height: 480px;
+            object-fit: cover;
+            border-radius: 4px;
             margin: 20px 0;
         }
 
-        .names span {
-            color: var(--accent-gold);
-            font-style: normal;
+        /* Екі фото қатар тұратын блок */
+        .photo-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin: 20px 0;
         }
 
-        .divider {
-            width: 50px;
-            height: 1px;
-            background-color: var(--accent-gold);
-            margin: 30px auto;
+        .photo-grid img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 4px;
         }
 
-        .date-badge {
-            font-size: 1.1rem;
-            font-weight: 400;
-            letter-spacing: 1px;
-            margin-bottom: 25px;
-            color: var(--text-main);
-        }
-
-        .text-block {
+        /* 2-блок: Мәтін */
+        .invite-text {
             font-size: 0.95rem;
             color: #555;
-            margin-bottom: 30px;
-            padding: 0 15px;
+            margin: 20px 0;
+            letter-spacing: 0.5px;
         }
 
-        /* Таймер */
+        .subtitle-small {
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.75rem;
+            color: var(--accent-olive);
+            margin-bottom: 15px;
+        }
+
+        /* 3-блок: Күнтізбе */
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 8px;
+            max-width: 320px;
+            margin: 20px auto;
+            font-size: 0.9rem;
+        }
+
+        .calendar-grid div {
+            padding: 8px 0;
+            color: #777;
+        }
+
+        .calendar-grid .day-active {
+            background-color: var(--accent-olive);
+            color: white;
+            border-radius: 50%;
+            font-weight: 500;
+        }
+
+        /* 4-блок: Таймер */
+        .countdown-box {
+            background-color: var(--accent-olive);
+            color: white;
+            padding: 30px 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
         .countdown {
             display: flex;
             justify-content: center;
             gap: 15px;
-            margin: 35px 0;
         }
 
-        .time-box {
-            background: #faf8f5;
-            border: 1px solid var(--border-color);
-            padding: 12px 10px;
-            border-radius: 8px;
-            min-width: 70px;
-        }
-
-        .time-box span {
+        .time-item span {
             display: block;
             font-family: 'Playfair Display', serif;
-            font-size: 1.4rem;
-            color: var(--accent-gold-dark);
+            font-size: 1.8rem;
             font-weight: 600;
         }
 
-        .time-box label {
+        .time-item label {
             font-size: 0.65rem;
             text-transform: uppercase;
             letter-spacing: 1px;
-            color: #777;
+            opacity: 0.8;
         }
 
-        /* Детали */
-        .details-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 20px;
-            margin: 35px 0;
-            text-align: left;
+        /* 5-блок: Мекенжай */
+        .location-card {
+            background: #f7f6f2;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
         }
 
-        .detail-card {
-            background: #faf8f5;
-            border-left: 3px solid var(--accent-gold);
-            padding: 15px 20px;
-            border-radius: 0 8px 8px 0;
-        }
-
-        .detail-card h3 {
-            font-size: 1rem;
-            font-family: 'Playfair Display', serif;
-            margin-bottom: 5px;
-            color: var(--text-main);
-        }
-
-        .detail-card p {
-            font-size: 0.85rem;
-            color: #666;
-        }
-
-        /* RSVP форма */
-        .rsvp-section {
-            margin-top: 40px;
-            border-top: 1px solid var(--border-color);
-            padding-top: 30px;
-        }
-
-        .rsvp-section h2 {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-        }
-
+        /* Форма */
         .form-group {
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             text-align: left;
         }
 
         label {
             display: block;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             text-transform: uppercase;
             letter-spacing: 1px;
-            margin-bottom: 5px;
+            margin-bottom: 8px;
             color: #555;
         }
 
-        input[type="text"], select {
+        input[type="text"] {
             width: 100%;
-            padding: 12px;
+            padding: 14px;
             border: 1px solid var(--border-color);
             border-radius: 6px;
             font-family: 'Montserrat', sans-serif;
-            font-size: 0.9rem;
-            background: #fff;
+            font-size: 0.95rem;
             outline: none;
-            transition: border 0.3s;
+            background: #fff;
         }
 
-        input[type="text"]:focus, select:focus {
-            border-color: var(--accent-gold);
+        input[type="text"]:focus {
+            border-color: var(--accent-olive);
+        }
+
+        .radio-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            text-align: left;
+            margin-top: 10px;
+        }
+
+        .radio-label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            text-transform: none;
         }
 
         .btn {
-            background-color: var(--accent-gold);
+            background-color: var(--accent-olive);
             color: white;
             border: none;
-            padding: 14px 25px;
+            padding: 15px;
             font-size: 0.85rem;
             text-transform: uppercase;
             letter-spacing: 2px;
@@ -205,98 +221,147 @@
             cursor: pointer;
             width: 100%;
             transition: background 0.3s;
-            margin-top: 10px;
             font-weight: 500;
+            margin-top: 10px;
         }
 
         .btn:hover {
-            background-color: var(--accent-gold-dark);
+            background-color: var(--accent-olive-dark);
         }
 
-        .success-message {
+        .success-msg {
             display: none;
-            background: #eafaf1;
-            color: #27ae60;
+            background: #edf7ed;
+            color: #1e4620;
             padding: 15px;
             border-radius: 6px;
             font-size: 0.9rem;
             margin-top: 15px;
-            border: 1px solid #d4efdf;
+        }
+
+        .footer {
+            padding: 30px;
+            font-size: 0.85rem;
+            color: #888;
         }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <div class="header-subtitle">Үйлену тойына шақыру</div>
-        <div class="names">Арай <span>&</span> Темірлан</div>
-        <div class="divider"></div>
-        
-        <div class="date-badge">15 тамыз 2026 жыл</div>
-        
-        <div class="text-block">
-            Қымбатты ағайын-туыс, бауырлар, дос-жарандар! Сіздерді қуанышымыздың қадірлі қонағы болуға шақырамыз. Біз үшін бұл ерекше күнді жақындарымызбен бірге атап өту үлкен бақыт!
-        </div>
+        <!-- Блок 1: Басты бет -->
+        <section class="hero-section">
+            <div class="names">Aray<br>&<br>Temirlan</div>
+            <!-- Сіз жіберген баспалдақтағы негізгі сурет -->
+            <img src="photo_2026-09-25_14-49-29.jpg" alt="Арай мен Темірлан" class="main-photo">
+        </section>
 
-        <!-- Таймер -->
-        <div class="countdown">
-            <div class="time-box">
-                <span id="days">00</span>
-                <label>Күн</label>
-            </div>
-            <div class="time-box">
-                <span id="hours">00</span>
-                <label>Сағат</label>
-            </div>
-            <div class="time-box">
-                <span id="minutes">00</span>
-                <label>Минут</label>
-            </div>
-            <div class="time-box">
-                <span id="seconds">00</span>
-                <label>Секунд</label>
-            </div>
-        </div>
-
-        <div class="details-grid">
-            <div class="detail-card">
-                <h3>💍 Неке қию рәсімі</h3>
-                <p>14:00 — АХАЖ бөлімі (ЗАГС)</p>
-            </div>
-            <div class="detail-card">
-                <h3>🥂 Салтанатты акжақен (Банкет)</h3>
-                <p>17:00 — «Алтын Сарай» мейрамханасы</p>
-            </div>
-        </div>
-
-        <!-- Қонақтың келуін растау формасы -->
-        <div class="rsvp-section">
-            <h2>Қатысуды растау</h2>
-            <p class="text-block" style="margin-bottom: 20px;">Тойға келетініңізді 1 тамызға дейін хабарлауыңызды сұраймыз.</p>
+        <!-- Блок 2: Шақыру мәтіні -->
+        <section>
+            <div class="subtitle-small">Құрметті қонақтар!</div>
+            <h2 style="margin-bottom: 20px;">Сіздерді қуанышымызға ортақ болуға шақырамыз</h2>
+            <p class="invite-text">
+                Балғын шақты артта қалдырып, жұп болған қуанышты күнімізде ақ дастарханымыздың қадірлі қонағы болыңыздар!
+            </p>
             
+            <!-- Қосымша екі сурет (қатар тұратын) -->
+            <div class="photo-grid">
+                <img src="photo_2026-09-25_14-49-29.jpg" alt="Сурет 1">
+                <img src="photo_2026-09-25_14-59-12.jpg" alt="Сурет 2">
+            </div>
+        </section>
+
+        <!-- Блок 3: Той күні және күнтізбе -->
+        <section>
+            <div class="subtitle-small">Той салтанаты</div>
+            <h2 style="font-size: 1.5rem; margin-bottom: 10px;">15 тамыз 2026 жыл</h2>
+            <p style="color: #666; margin-bottom: 20px;">Сағат 17:00-де</p>
+
+            <div class="calendar-grid">
+                <div>Дс</div><div>Сс</div><div>Ср</div><div>Бс</div><div>Жм</div><div>Сб</div><div>Жб</div>
+                <div></div><div></div><div></div><div></div><div>1</div><div>2</div><div>3</div>
+                <div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div>
+                <div>11</div><div>12</div><div>13</div><div>14</div><div class="day-active">15</div><div>16</div><div>17</div>
+                <div>18</div><div>19</div><div>20</div><div>21</div><div>22</div><div>23</div><div>24</div>
+                <div>25</div><div>26</div><div>27</div><div>28</div><div>29</div><div>30</div><div>31</div>
+            </div>
+        </section>
+
+        <!-- Блок 4: Таймер -->
+        <section style="background: #faf9f6;">
+            <div class="subtitle-small">Тойға дейін қалды</div>
+            <div class="countdown-box">
+                <div class="countdown">
+                    <div class="time-item">
+                        <span id="days">00</span>
+                        <label>Күн</label>
+                    </div>
+                    <div class="time-item">
+                        <span id="hours">00</span>
+                        <label>Сағат</label>
+                    </div>
+                    <div class="time-item">
+                        <span id="minutes">00</span>
+                        <label>Минут</label>
+                    </div>
+                    <div class="time-item">
+                        <span id="seconds">00</span>
+                        <label>Секунд</label>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Блок 5: Мекенжай -->
+        <section>
+            <div class="subtitle-small">Мекенжайымыз</div>
+            <h2 style="font-size: 1.4rem; margin-bottom: 15px;">Ақтау қаласы</h2>
+            <div class="location-card">
+                <h3 style="font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--accent-olive);">«Grand Hall Aktau» мейрамханасы</h3>
+            </div>
+        </section>
+
+        <!-- Блок 6: Сауалнама (RSVP) -->
+        <section>
+            <div class="subtitle-small">Сауалнама</div>
+            <h2 style="margin-bottom: 20px; font-size: 1.4rem;">Тойға келесіз бе?</h2>
+            <p style="font-size: 0.85rem; color: #666; margin-bottom: 25px;">Жауабыңызды 1 тамызға дейін белгілеуіңізді сұраймыз.</p>
+
             <form id="rsvpForm" onsubmit="handleFormSubmit(event)">
                 <div class="form-group">
-                    <label for="fullname">Аты-жөніңіз</label>
-                    <input type="text" id="fullname" required placeholder="Мысалы: Ерлан Серікұлы">
+                    <label for="fullname">Аты-жөніңіз (жұбыңызбен келсеңіз, есімін қоса жазыңыз)</label>
+                    <input type="text" id="fullname" required placeholder="Мысалы: Ерлан & Айгерим">
                 </div>
+
                 <div class="form-group">
-                    <label for="presence">Тойға келесіз бе?</label>
-                    <select id="presence">
-                        <option value="yes">Әрине, қуанышпен барамын</option>
-                        <option value="no">Өкінішке орай, келе алмаймын</option>
-                    </select>
+                    <label>Қатысу форматы:</label>
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input type="radio" name="presence" value="yes" checked> Келемін
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="presence" value="couple"> Жұбыммен келемін
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="presence" value="no"> Өкінішке орай, келе алмаймын
+                        </label>
+                    </div>
                 </div>
+
                 <button type="submit" class="btn">Жіберу</button>
             </form>
 
-            <div id="successMessage" class="success-message">
-                Рақмет! Жауабыңыз қабылданды. Тойдан көріскенше асыға күтеміз!
+            <div id="successMessage" class="success-msg">
+                Рақмет! Жауабыңыз сәтті қабылданды. Тойдан көріскенше асыға күтеміз!
             </div>
+        </section>
+
+        <div class="footer">
+            Аса махаббатпен жасалған ❤️ Арай & Темірлан
         </div>
     </div>
 
     <script>
-        // Той күні (Жыл, Ай (0-11, яғни 7 - тамыз), Күн, Сағат, Минут)
         const weddingDate = new Date(2026, 7, 15, 17, 0, 0).getTime();
 
         function updateCountdown() {
@@ -304,7 +369,7 @@
             const distance = weddingDate - now;
 
             if (distance < 0) {
-                document.querySelector('.countdown').innerHTML = "<b>Той күні келіп жетті! Ура!</b>";
+                document.querySelector('.countdown-box').innerHTML = "<b>Той күні келіп жетті! Ура!</b>";
                 return;
             }
 
