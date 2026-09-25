@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="kk">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Приглашение на свадьбу | Александр & Мария</title>
+    <title>Үйлену тойына шақыру | Арай & Темірлан</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -58,7 +58,7 @@
         }
 
         .names {
-            font-size: 2.5rem;
+            font-size: 2.3rem;
             font-family: 'Playfair Display', serif;
             font-style: italic;
             color: var(--text-main);
@@ -123,7 +123,7 @@
             color: #777;
         }
 
-        /* Детали события */
+        /* Детали */
         .details-grid {
             display: grid;
             grid-template-columns: 1fr;
@@ -151,7 +151,7 @@
             color: #666;
         }
 
-        /* Форма RSVP */
+        /* RSVP форма */
         .rsvp-section {
             margin-top: 40px;
             border-top: 1px solid var(--border-color);
@@ -228,25 +228,25 @@
 <body>
 
     <div class="container">
-        <div class="header-subtitle">Приглашение на свадьбу</div>
-        <div class="names">Александр <span>&</span> Мария</div>
+        <div class="header-subtitle">Үйлену тойына шақыру</div>
+        <div class="names">Арай <span>&</span> Темірлан</div>
         <div class="divider"></div>
         
-        <div class="date-badge">15 августа 2026 года</div>
+        <div class="date-badge">15 тамыз 2026 жыл</div>
         
         <div class="text-block">
-            Мы с трепетом ждем этот день и будем счастливы разделить его с самыми близкими людьми. Ваше присутствие сделает наш праздник незабываемым!
+            Қымбатты ағайын-туыс, бауырлар, дос-жарандар! Сіздерді қуанышымыздың қадірлі қонағы болуға шақырамыз. Біз үшін бұл ерекше күнді жақындарымызбен бірге атап өту үлкен бақыт!
         </div>
 
-        <!-- Таймер (измени дату под себя в коде ниже) -->
+        <!-- Таймер -->
         <div class="countdown">
             <div class="time-box">
                 <span id="days">00</span>
-                <label>Дней</label>
+                <label>Күн</label>
             </div>
             <div class="time-box">
                 <span id="hours">00</span>
-                <label>Часов</label>
+                <label>Сағат</label>
             </div>
             <div class="time-box">
                 <span id="minutes">00</span>
@@ -260,51 +260,51 @@
 
         <div class="details-grid">
             <div class="detail-card">
-                <h3>💍 Церемония регистрации</h3>
-                <p>14:00 — Дворец бракосочетания, ул. Праздничная, 1</p>
+                <h3>💍 Неке қию рәсімі</h3>
+                <p>14:00 — АХАЖ бөлімі (ЗАГС)</p>
             </div>
             <div class="detail-card">
-                <h3>🥂 Праздничный банкет</h3>
-                <p>16:30 — Ресторан «Lимон», загородное шоссе, 12</p>
+                <h3>🥂 Салтанатты акжақен (Банкет)</h3>
+                <p>17:00 — «Алтын Сарай» мейрамханасы</p>
             </div>
         </div>
 
-        <!-- Форма ответа -->
+        <!-- Қонақтың келуін растау формасы -->
         <div class="rsvp-section">
-            <h2>Подтверждение участия</h2>
-            <p class="text-block" style="margin-bottom: 20px;">Пожалуйста, сообщите нам о своем решении до 1 августа.</p>
+            <h2>Қатысуды растау</h2>
+            <p class="text-block" style="margin-bottom: 20px;">Тойға келетініңізді 1 тамызға дейін хабарлауыңызды сұраймыз.</p>
             
             <form id="rsvpForm" onsubmit="handleFormSubmit(event)">
                 <div class="form-group">
-                    <label for="fullname">Ваше Имя и Фамилия</label>
-                    <input type="text" id="fullname" required placeholder="Например: Алексей Смирнов">
+                    <label for="fullname">Аты-жөніңіз</label>
+                    <input type="text" id="fullname" required placeholder="Мысалы: Ерлан Серікұлы">
                 </div>
                 <div class="form-group">
-                    <label for="presence">Сможете ли вы присутствовать?</label>
+                    <label for="presence">Тойға келесіз бе?</label>
                     <select id="presence">
-                        <option value="yes">С радостью буду / буду уверена</option>
-                        <option value="no">К сожалению, не смогу</option>
+                        <option value="yes">Әрине, қуанышпен барамын</option>
+                        <option value="no">Өкінішке орай, келе алмаймын</option>
                     </select>
                 </div>
-                <button type="submit" class="btn">Отправить ответ</button>
+                <button type="submit" class="btn">Жіберу</button>
             </form>
 
             <div id="successMessage" class="success-message">
-                Спасибо! Ваш ответ успешно сохранен. Мы с нетерпением ждем встречи!
+                Рақмет! Жауабыңыз қабылданды. Тойдан көріскенше асыға күтеміз!
             </div>
         </div>
     </div>
 
     <script>
-        // Дата свадьбы (Год, Месяц с 0 по 11, День, Часы, Минуты)
-        const weddingDate = new Date(2026, 7, 15, 14, 0, 0).getTime();
+        // Той күні (Жыл, Ай (0-11, яғни 7 - тамыз), Күн, Сағат, Минут)
+        const weddingDate = new Date(2026, 7, 15, 17, 0, 0).getTime();
 
         function updateCountdown() {
             const now = new Date().getTime();
             const distance = weddingDate - now;
 
             if (distance < 0) {
-                document.querySelector('.countdown').innerHTML = "<b>День свадьбы настал! Ура!</b>";
+                document.querySelector('.countdown').innerHTML = "<b>Той күні келіп жетті! Ура!</b>";
                 return;
             }
 
