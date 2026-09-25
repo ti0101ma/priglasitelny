@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Приглашение на свадьбу | Александр & Мария</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #fcfbfa;
+            --text-main: #2c2a29;
+            --accent-gold: #c5a059;
+            --accent-gold-dark: #a3813e;
+            --card-bg: #ffffff;
+            --border-color: #eae5df;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 300;
+            line-height: 1.6;
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 600px;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+            border-radius: 12px;
+            overflow: hidden;
+            padding: 40px 30px;
+            text-align: center;
+        }
+
+        h1, h2 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 400;
+        }
+
+        .header-subtitle {
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.75rem;
+            color: var(--accent-gold);
+            margin-bottom: 15px;
+        }
+
+        .names {
+            font-size: 2.5rem;
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            color: var(--text-main);
+            margin: 20px 0;
+        }
+
+        .names span {
+            color: var(--accent-gold);
+            font-style: normal;
+        }
+
+        .divider {
+            width: 50px;
+            height: 1px;
+            background-color: var(--accent-gold);
+            margin: 30px auto;
+        }
+
+        .date-badge {
+            font-size: 1.1rem;
+            font-weight: 400;
+            letter-spacing: 1px;
+            margin-bottom: 25px;
+            color: var(--text-main);
+        }
+
+        .text-block {
+            font-size: 0.95rem;
+            color: #555;
+            margin-bottom: 30px;
+            padding: 0 15px;
+        }
+
+        /* Таймер */
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 35px 0;
+        }
+
+        .time-box {
+            background: #faf8f5;
+            border: 1px solid var(--border-color);
+            padding: 12px 10px;
+            border-radius: 8px;
+            min-width: 70px;
+        }
+
+        .time-box span {
+            display: block;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            color: var(--accent-gold-dark);
+            font-weight: 600;
+        }
+
+        .time-box label {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #777;
+        }
+
+        /* Детали события */
+        .details-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            margin: 35px 0;
+            text-align: left;
+        }
+
+        .detail-card {
+            background: #faf8f5;
+            border-left: 3px solid var(--accent-gold);
+            padding: 15px 20px;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .detail-card h3 {
+            font-size: 1rem;
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 5px;
+            color: var(--text-main);
+        }
+
+        .detail-card p {
+            font-size: 0.85rem;
+            color: #666;
+        }
+
+        /* Форма RSVP */
+        .rsvp-section {
+            margin-top: 40px;
+            border-top: 1px solid var(--border-color);
+            padding-top: 30px;
+        }
+
+        .rsvp-section h2 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        label {
+            display: block;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+            color: #555;
+        }
+
+        input[type="text"], select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.9rem;
+            background: #fff;
+            outline: none;
+            transition: border 0.3s;
+        }
+
+        input[type="text"]:focus, select:focus {
+            border-color: var(--accent-gold);
+        }
+
+        .btn {
+            background-color: var(--accent-gold);
+            color: white;
+            border: none;
+            padding: 14px 25px;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-radius: 6px;
+            cursor: pointer;
+            width: 100%;
+            transition: background 0.3s;
+            margin-top: 10px;
+            font-weight: 500;
+        }
+
+        .btn:hover {
+            background-color: var(--accent-gold-dark);
+        }
+
+        .success-message {
+            display: none;
+            background: #eafaf1;
+            color: #27ae60;
+            padding: 15px;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            margin-top: 15px;
+            border: 1px solid #d4efdf;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="header-subtitle">Приглашение на свадьбу</div>
+        <div class="names">Александр <span>&</span> Мария</div>
+        <div class="divider"></div>
+        
+        <div class="date-badge">15 августа 2026 года</div>
+        
+        <div class="text-block">
+            Мы с трепетом ждем этот день и будем счастливы разделить его с самыми близкими людьми. Ваше присутствие сделает наш праздник незабываемым!
+        </div>
+
+        <!-- Таймер (измени дату под себя в коде ниже) -->
+        <div class="countdown">
+            <div class="time-box">
+                <span id="days">00</span>
+                <label>Дней</label>
+            </div>
+            <div class="time-box">
+                <span id="hours">00</span>
+                <label>Часов</label>
+            </div>
+            <div class="time-box">
+                <span id="minutes">00</span>
+                <label>Минут</label>
+            </div>
+            <div class="time-box">
+                <span id="seconds">00</span>
+                <label>Секунд</label>
+            </div>
+        </div>
+
+        <div class="details-grid">
+            <div class="detail-card">
+                <h3>💍 Церемония регистрации</h3>
+                <p>14:00 — Дворец бракосочетания, ул. Праздничная, 1</p>
+            </div>
+            <div class="detail-card">
+                <h3>🥂 Праздничный банкет</h3>
+                <p>16:30 — Ресторан «Lимон», загородное шоссе, 12</p>
+            </div>
+        </div>
+
+        <!-- Форма ответа -->
+        <div class="rsvp-section">
+            <h2>Подтверждение участия</h2>
+            <p class="text-block" style="margin-bottom: 20px;">Пожалуйста, сообщите нам о своем решении до 1 августа.</p>
+            
+            <form id="rsvpForm" onsubmit="handleFormSubmit(event)">
+                <div class="form-group">
+                    <label for="fullname">Ваше Имя и Фамилия</label>
+                    <input type="text" id="fullname" required placeholder="Например: Алексей Смирнов">
+                </div>
+                <div class="form-group">
+                    <label for="presence">Сможете ли вы присутствовать?</label>
+                    <select id="presence">
+                        <option value="yes">С радостью буду / буду уверена</option>
+                        <option value="no">К сожалению, не смогу</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn">Отправить ответ</button>
+            </form>
+
+            <div id="successMessage" class="success-message">
+                Спасибо! Ваш ответ успешно сохранен. Мы с нетерпением ждем встречи!
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Дата свадьбы (Год, Месяц с 0 по 11, День, Часы, Минуты)
+        const weddingDate = new Date(2026, 7, 15, 14, 0, 0).getTime();
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = weddingDate - now;
+
+            if (distance < 0) {
+                document.querySelector('.countdown').innerHTML = "<b>День свадьбы настал! Ура!</b>";
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById('days').innerText = String(days).padStart(2, '0');
+            document.getElementById('hours').innerText = String(hours).padStart(2, '0');
+            document.getElementById('minutes').innerText = String(minutes).padStart(2, '0');
+            document.getElementById('seconds').innerText = String(seconds).padStart(2, '0');
+        }
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            document.getElementById('rsvpForm').style.display = 'none';
+            document.getElementById('successMessage').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
